@@ -97,4 +97,5 @@ var MainViewModel = (function() {
     var viewModel = new MainViewModel();
     viewModel.load();
     ko.applyBindings(viewModel);
+
 })();

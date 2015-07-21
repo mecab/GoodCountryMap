@@ -1,16 +1,63 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/bootstrap.modal.css" />
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" />
         <link rel="stylesheet" href="css/style.css" />
         <title>The Good Country Index</title>
     </head>
     <body>
+        <!-- Modal -->
+        <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h1 class="modal-title" id="myModalLabel">About this map</h1>
+                    </div>
+                    <div class="modal-body">
+                        <h2>The Good Country Map by Masafumi Muta</h2>
+                        <p>This is a geological visualization of the <a href="http://www.goodcountry.org/index_intro">Good Country Index</a> which is originally created by Simon Anholt.</p>
+                        <blockquote>
+                            <p>Q: What’s all this about, then?</p>
+                            <p>A: The Good Country Index tries to measure how much each country on earth contributes to the planet and to the human race. </p>
+                            <cite>From <a href="http://www.goodcountry.org/faq">FAQ</a> of the Good Country Index</cite>
+                        </blockquote>
+                        <p>As you can see from the above link, the original data is provided as interactive sortable table. I thought that we can find more interesting knowledge, especially how the highly ranked countries are distributed on the world and how the distribution changes with the indicators. It motivated me visualizing the data on the world map.</p>
+                        <h2>Usage</h2>
+                        <p>In this map, a country filled by more vivid <i class="fa fa-square vividest"></i>
+ color means that it is ranked higher. Duller <i class="fa fa-square dullest"></i>
+                            color means lower. Black <i class="fa fa-square black"></i> means that the data for the country is not provided in the index.</p>
+                        <p>You can change the indicator by the buttons positioned above the map. Also you can check the ranking in current indicator on the table at the right.</p>
+                        <h2>Acknowledgement</h2>
+                        <p>I would like to thank following people who made this work be done.</p>
+                        <ul>
+                            <li><strong>Simon Anholt and other authors of the Good Country Index</strong><br />
+                                I could not do nothing with their works.</li>
+                            <li><strong>Mark DiMarco and other contributors of Datamaps</strong><br />
+                                Datamaps made the visualization with the world map be super easy.
+                            </li>
+                        </ul>
+                        <h2>Contact</h2>
+                        <p>If you have questions, suggestions, or any other issues, please contact to Masafumi MUTA on Twitter (<a href="https://twitter.com/mecab">@mecab</a>) or mail me directly (mecab [at] misosi.ru).</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="pure-button pure-button-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
         <div id="buttons" class="pure-g" data-bind="foreach: metrics">
             <button class="pure-button pure-u-1-8" data-bind="text: $data, css: { 'pure-button-primary': $data === $parent.currentMetric(), 'button-highlight': $data === $parent.highlightingMetric() }, click: $parent.changeMetric.bind($parent)"></button>
         </div>
         <div id="container" class="pure-g">
-            <div id="map" class="pure-u-3-4"></div>
+            <div id="map-container" class="pure-u-3-4">
+                <div id="map"></div>
+                <div id="about">
+                    <h1><i class="fa fa-question-circle" data-toggle="modal" data-target="#aboutModal"></i></h1>
+                </div>
+            </div>
             <div id="sidebar" class="pure-u-1-4">
                 <h3 data-bind="text: currentMetric"></h3>
                 <div id="table-container">
@@ -34,6 +81,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
         <script src="js/linq.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="js/datamaps.world.min.js"></script>
         <script src="js/main.js"></script>
     </body>
