@@ -15,18 +15,14 @@
                 <h3 data-bind="text: currentMetric"></h3>
                 <div id="table-container">
                     <table class="pure-table">
-                        <tbody data-bind="foreach: valuesForCurrentMetricOrdered">
+                        <tbody data-bind="foreach: { data: valuesForCurrentMetricOrdered, as: 'country' }">
                             <tr data-bind="css: { 'pure-table-odd': $index() % 2 === 0 }">
                                 <td class="index" data-bind="text: $index() + 1"></td>
-                                <td class="country-name" data-bind="text: $data['Country Name']"></td>
-                                <td class="mini" data-bind="text: $data['Overall Index'], css: { current: $parent.currentMetric() === 'Overall Index' }"></td>
-                                <td class="mini" data-bind="text: $data['Science and Technology'], css: { current: $parent.currentMetric() === 'Science and Technology' }"></td>
-                                <td class="mini" data-bind="text: $data['Culture'], css: { current: $parent.currentMetric() === 'Culture' }"></td>
-                                <td class="mini" data-bind="text: $data['Int\'l Peace and Security'], css: { current: $parent.currentMetric() === 'Int\'l Peace and Security' }"></td>
-                                <td class="mini" data-bind="text: $data['World Order'], css: { current: $parent.currentMetric() === 'World Order' }"></td>
-                                <td class="mini" data-bind="text: $data['Planet and Climate'], css: { current: $parent.currentMetric() === 'Planet and Climate' }"></td>
-                                <td class="mini" data-bind="text: $data['Prosperity and Equality'], css: { current: $parent.currentMetric() === 'Prosperity and Equality' }"></td>
-                                <td class="mini" data-bind="text: $data['Health and Wellbeing'], css: { current: $parent.currentMetric() === 'Health and Wellbeing' }"></td>
+                                <td class="country-name" data-bind="text: country['Country Name']"></td>
+                                <!-- ko foreach: { data: $parent.metrics, as: 'metric' } -->
+                                <!-- $parents[1] === mainViewModel -->
+                                <td class="mini" data-bind="text: country[metric], css: { current: $parents[1].currentMetric() === metric }"></td>
+                                <!-- /ko -->
                             </tr>
                         </tbody>
                     </table>
