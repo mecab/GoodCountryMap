@@ -1,0 +1,84 @@
+body {
+    overflow-y: hidden;
+}
+
+.hoverinfo {
+    text-align: center;
+}
+
+#buttons {
+    height: 50px;
+}
+
+#buttons button {
+    height: 100%;
+}
+
+#container {
+    position: absolute;
+    top: 50px;
+    width: 100%;
+    height: calc(100% - 42px);
+}
+
+#map, #sidebar {
+    background: #444;
+    height: 100%;
+}
+
+#sidebar {
+    box-sizing: border-box;
+    padding-left: 10px;
+    background: #222;
+    position: relative;
+}
+
+#table-container {
+    height: calc(100% - 75px);
+    overflow: auto;
+}
+
+#sidebar h3 {
+    color: white;
+}
+
+#sidebar table {
+    font-size: 0.9em;
+}
+
+#sidebar table,
+#sidebar td
+{
+    border: none;
+}
+
+#sidebar td {
+    background: white;
+}
+
+#sidebar .pure-table-odd td {
+    background-color: #f2f2f2;
+}
+
+#sidebar table .country-name {
+    width: 0;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+#sidebar table .index {
+    padding-right: 0.3em;
+}
+
+#sidebar table .mini {
+    font-size: 0.8em;
+    padding: 0px;
+    text-align: right;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    color: gray;
+}
+
+#sidebar table .mini.current {
+    color: #0078e7;
+}
