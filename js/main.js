@@ -53,6 +53,9 @@ var MainViewModel = (function() {
                               };
                           });
         }, this);
+        this.fillData.subscribe(function(newValue) {
+            this.map.updateChoropleth(this.fillData());
+        }, this);
 
         $(window).resize(function() {
             delete this.map;
@@ -64,7 +67,6 @@ var MainViewModel = (function() {
 
     MainViewModel.prototype.changeMetric = function(data, e) {
         this.currentMetric($(e.target).text());
-        this.map.updateChoropleth(this.fillData());
     };
 
     MainViewModel.prototype.load = function() {
