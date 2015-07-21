@@ -1,4 +1,5 @@
 body {
+    background: #444;
     overflow-y: hidden;
 }
 
@@ -27,7 +28,6 @@ body {
 }
 
 #map, #sidebar {
-    background: #444;
     height: 100%;
 }
 
@@ -66,7 +66,7 @@ body {
 }
 
 #sidebar table .country-name {
-    width: 0;
+    width: 1%;
     padding-left: 0.3em;
     padding-right: 0.3em;
 }
@@ -86,4 +86,12 @@ body {
 
 #sidebar table .mini.current {
     color: #0078e7;
+}
+
+#sidebar table .mini.highlight {
+    background: hsl(29, 100%, 89%);
+}
+
+#sidebar table .pure-table-odd .mini.highlight {
+    background: hsl(29, 100%, 84%);
 }

@@ -21,7 +21,7 @@
                                 <td class="country-name" data-bind="text: country['Country Name']"></td>
                                 <!-- ko foreach: { data: $parent.metrics, as: 'metric' } -->
                                 <!-- $parents[1] === mainViewModel -->
-                                <td class="mini" data-bind="text: country[metric], css: { current: $parents[1].currentMetric() === metric }, event: { mouseover: $parents[1].highlightMetric.bind($parents[1]), mouseleave: $parents[1].removeHighlightingMetric.bind($parents[1]) }"></td>
+                                <td class="mini" data-bind="text: country[metric], css: { current: $parents[1].currentMetric() === metric, highlight: $parents[1].highlightingMetric() === metric }, event: { mouseover: $parents[1].highlightMetric.bind($parents[1]), mouseleave: $parents[1].removeHighlightingMetric.bind($parents[1]) }"></td>
                                 <!-- /ko -->
                             </tr>
                         </tbody>
