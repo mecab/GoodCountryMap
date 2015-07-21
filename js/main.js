@@ -35,6 +35,7 @@ var MainViewModel = (function() {
             "Health and Wellbeing"
         ]);
         this.currentMetric = ko.observable("Overall Index");
+        this.highlightingMetric = ko.observable(null);
         this.valuesForCurrentMetricOrdered = ko.computed(function() {
             var val = Enumerable.from(this.data())
                 .orderBy(function(x) {
@@ -79,6 +80,14 @@ var MainViewModel = (function() {
                 that.data(e);
                 that.map.updateChoropleth(that.fillData());
             });
+    };
+
+    MainViewModel.prototype.highlightMetric = function(data, e) {
+        this.highlightingMetric(data);
+    };
+
+    MainViewModel.prototype.removeHighlightingMetric = function(data, e) {
+        this.highlightingMetric(null);
     };
 
     return MainViewModel;

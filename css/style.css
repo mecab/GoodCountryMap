@@ -6,6 +6,11 @@ body {
     text-align: center;
 }
 
+.button-highlight {
+    background: rgb(223, 117, 20); /* this is an orange */
+    color: white;
+}
+
 #buttons {
     height: 50px;
 }

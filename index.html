@@ -7,7 +7,7 @@
     </head>
     <body>
         <div id="buttons" class="pure-g" data-bind="foreach: metrics">
-            <button class="pure-button pure-u-1-8" data-bind="text: $data, css: { 'pure-button-primary': $data === $parent.currentMetric() }, click: $parent.changeMetric.bind($parent)"></button>
+            <button class="pure-button pure-u-1-8" data-bind="text: $data, css: { 'pure-button-primary': $data === $parent.currentMetric(), 'button-highlight': $data === $parent.highlightingMetric() }, click: $parent.changeMetric.bind($parent)"></button>
         </div>
         <div id="container" class="pure-g">
             <div id="map" class="pure-u-3-4"></div>
@@ -21,7 +21,7 @@
                                 <td class="country-name" data-bind="text: country['Country Name']"></td>
                                 <!-- ko foreach: { data: $parent.metrics, as: 'metric' } -->
                                 <!-- $parents[1] === mainViewModel -->
-                                <td class="mini" data-bind="text: country[metric], css: { current: $parents[1].currentMetric() === metric }"></td>
+                                <td class="mini" data-bind="text: country[metric], css: { current: $parents[1].currentMetric() === metric }, event: { mouseover: $parents[1].highlightMetric.bind($parents[1]), mouseleave: $parents[1].removeHighlightingMetric.bind($parents[1]) }"></td>
                                 <!-- /ko -->
                             </tr>
                         </tbody>
